@@ -1,0 +1,37 @@
+/* Custom 2x2 Layout Grid Container */
+#classroom-multi-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+gap: 12px;
+width: 100%;
+height: 100%;
+box-sizing: border-box;
+padding: 12px;
+background-color: #121212;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 9999; /* Positions grid reliably above native elements */
+}
+
+/* Fallback layout rules if student turns in exactly 2 or 3 items */
+#classroom-multi-grid:has(> :nth-child(3):last-child) {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: auto;
+}
+
+#classroom-multi-grid:has(> :nth-child(2):last-child) {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 1fr;
+}
+
+/* Grid Framing Elements */
+.grid-image-item {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #3c4043;
+  background-color: #202124;
+  border-radius: 6px;
+  box-sizing: border-box;
+}

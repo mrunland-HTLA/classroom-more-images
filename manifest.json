@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Google Classroom Multi-Image Grid",
+  "version": "1.0",
+  "description": "Displays up to 4 attached student images simultaneously in a grading view grid instead of one at a time.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "classroom-multigrid@pizzapizzapizza.local",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://classroom.google.com/*",
+    "https://drive.google.com/*",
+    "https://*.googleusercontent.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://classroom.google.com/g/tg/*"],
+      "css": ["styles.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
